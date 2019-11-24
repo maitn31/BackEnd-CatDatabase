@@ -1,24 +1,19 @@
 'use strict';
-// catRoute
 const express = require('express');
 const router = express.Router();
+const multer = require('multer');
+const upload = multer({dest: 'uploads/'});
+const catController = require('../controllers/catController');
 
-router.get('/cat', (req, res) => {
-    res.send('With this endpoint you can get cats.');
-});
+router.get('/', catController.cat_list_get);
 
-router.get('/cat/:id', (req, res) => {
-    res.send('You request a cat with id ${req.params.id}');
-});
+router.get('/:id', catController.cat_get);
 
-router.post('/cat', (req, res) => {
-    res.send('With this endpoint you can get cats.');
-});
-router.put('/cat', (req, res) => {
-    res.send('With this endpoint you can edit cats.');
-});
-router.delete('/cat', (req, res) => {
-    res.send('With this endpoint you can delete cats.');
-});
+router.post('/', upload.single('cat'), catController.cat_create_post);
+
+
+router.put('/', catController.cat_update);
+
+router.delete('/:id', catController.cat_delete);
 
 module.exports = router;

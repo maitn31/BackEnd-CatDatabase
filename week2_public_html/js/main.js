@@ -1,5 +1,5 @@
 'use strict';
-const url = 'http://localhost:3000'; // change url when uploading to server
+const url = 'http://127.0.0.1:3000'; // change url when uploading to server
 
 const ul = document.querySelector('ul');
 
@@ -12,7 +12,7 @@ const getCat = async () => {
     <li>
         <h2>${cat.name}</h2>
         <figure>
-            <img src="${cat.filename}" class="resp">
+            <img src="${'../uploads/'+ cat.filename}" class="resp">
         </figure>
         <p>Age: ${cat.age}</p>
         <p>Weight: ${cat.weight}kg</p>
