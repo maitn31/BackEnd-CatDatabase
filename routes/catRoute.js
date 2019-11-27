@@ -16,4 +16,4 @@ router.put('/', catController.cat_update);
 
 router.delete('/:id', catController.cat_delete);
 
-module.exports = router;
+module.exports = router;;;;
