@@ -61,6 +61,17 @@ const deleteUser = async (params) => {
     console.log('error', e.message);
   }
 };
+const getUserLogin = async (params) => {
+  try {
+    console.log(params);
+    const [rows] = await promisePool.execute(
+        'SELECT * FROM wop_user WHERE email = ?;',
+        params);
+    return rows;
+  } catch (e) {
+    console.log('error', e.message);
+  }
+};
 
 module.exports = {
   getAllUsers,
@@ -68,4 +79,5 @@ module.exports = {
   addUser,
   deleteUser,
   updateUser,
+  getUserLogin,
 };
