@@ -1,3 +1,3 @@
 # wop-starters
 
-Modified the server
+Modified the server assignment
